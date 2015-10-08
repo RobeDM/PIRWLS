@@ -22,4 +22,4 @@ PIRWLS-train: PIRWLS-train.c
 	$(CC) $(OPTFLAGS) $(CFLAGS) $(INCLUDEPATH) $(LIBRARYPATH) -o PIRWLS-train PIRWLS-train.c $(LIBS)
 
 clean:
-	rm -f PIRWLS-{train,predict}
+	rm -f PIRWLS-train PIRWLS-predict
