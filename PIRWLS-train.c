@@ -18,10 +18,14 @@
 #include<sys/time.h>
 #include <string.h>
 
-
+#ifdef USE_MKL
 #include "mkl_cblas.h"
 #include "mkl_blas.h"
 #include "mkl.h"
+#else
+#include "cblas.h"
+#include "blas.h"
+#endif
 
 #include "./functionsPIRWLS/ParallelAlgorithms.h"
 #include "./functionsPIRWLS/ParallelAlgorithms.c"
