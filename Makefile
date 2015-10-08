@@ -17,11 +17,11 @@ endif
 
 all: PIRWLS-train PIRWLS-predict
 
-PIRWLS-train: PIRWLS-train.c
-	$(CC) $(OPTFLAGS) $(CFLAGS) $(INCLUDEPATH) $(LIBRARYPATH) -o PIRWLS-train PIRWLS-train.c $(LIBS)
-
 PIRWLS-predict: PIRWLS-predict.c
 	$(CC) $(OPTFLAGS) $(CFLAGS) $(INCLUDEPATH) $(LIBRARYPATH) -o PIRWLS-predict PIRWLS-predict.c $(LIBS)
+
+PIRWLS-train: PIRWLS-train.c
+	$(CC) $(OPTFLAGS) $(CFLAGS) $(INCLUDEPATH) $(LIBRARYPATH) -o PIRWLS-train PIRWLS-train.c $(LIBS)
 
 clean:
 	rm -f PIRWLS-{train,predict}
