@@ -23,7 +23,6 @@
 #include "mkl.h"
 #else
 #include "cblas.h"
-#include "blas.h"
 #endif
 
 #include "./functionsPIRWLS/tools.c"
