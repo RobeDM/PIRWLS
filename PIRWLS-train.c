@@ -23,6 +23,7 @@
 #include "mkl_blas.h"
 #include "mkl.h"
 
+#include "./functionsPIRWLS/ParallelAlgorithms.h"
 #include "./functionsPIRWLS/ParallelAlgorithms.c"
 #include "./functionsPIRWLS/tools.c"
 #include "./functionsPIRWLS/kernels.c"
