@@ -10,7 +10,7 @@ ifeq ($(USE_MKL),1)
 	INCLUDEPATH = -I/opt/intel/composerxe-2013.1.106/mkl/include/
 	LIBRARYPATH = -L/opt/intel/composerxe-2013.1.106/mkl/lib/intel64/
 else
-	LIBS = -fopenmp -lcblas
+	LIBS = -fopenmp -lcblas -lm
         INCLUDEPATH = -I/usr/local/atlas/include/
         LIBRARYPATH = -L/usr/local/atlas/lib/
 endif
