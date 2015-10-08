@@ -15,7 +15,7 @@ else
   LIBRARYPATH = -L/usr/local/atlas/lib/
 endif
 
-all: DIRWLS-train DIRWLS-predict
+all: PIRWLS-train PIRWLS-predict
 
 PIRWLS-train: PIRWLS-train.c
 	$(CC) $(OPTFLAGS) $(CFLAGS) $(INCLUDEPATH) $(LIBRARYPATH) -o PIRWLS-train PIRWLS-train.c $(LIBS)
