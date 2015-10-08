@@ -6,13 +6,13 @@ USE_MKL=0
 
 ifeq ($(USE_MKL),1)
 	CFLAGS= -USE_MKL
-	LIBS = -lmkl_core -lmkl_sequential -lmkl_intel_lp64 -lm
+	LIBS = -lmkl_core -fopenmp -lmkl_sequential -lmkl_intel_lp64 -lm
 	INCLUDEPATH = -I/opt/intel/composerxe-2013.1.106/mkl/include/
 	LIBRARYPATH = -L/opt/intel/composerxe-2013.1.106/mkl/lib/intel64/
 else
-	LIBS = -lcblas
-  INCLUDEPATH = -I/usr/local/atlas/include/
-  LIBRARYPATH = -L/usr/local/atlas/lib/
+	LIBS = -fopenmp -lcblas
+        INCLUDEPATH = -I/usr/local/atlas/include/
+        LIBRARYPATH = -L/usr/local/atlas/lib/
 endif
 
 all: PIRWLS-train PIRWLS-predict
