@@ -381,7 +381,11 @@ double* trainFULL(svm_dataset dataset,properties props){
     int itersSinceBest=0;
     int iter=0;
 
-    while((fullfill1+fullfill2+fullfill3)>0 && (itersSinceBest<25)){
+    int endNorm=0;
+    double bestNorm=1e20;
+    int SinceBest=0;
+
+    while( (endNorm==0) && (SinceBest<20)){
         iter+=1;
 
         // CONSTRUCT GIN AND GBIN
@@ -464,7 +468,29 @@ double* trainFULL(svm_dataset dataset,properties props){
 
         free(betaTmp); 
 
+        double deltaW=0.0;
+	double normW=0.0;
+        for (i=0;i<dataset.l+1;i++){
+	    deltaW=deltaW+pow(beta[i]-betaNew[i],2.0);
+	    normW=normW+pow(beta[i],2.0);
+	}
+
+        printf("El valor es %f\n",deltaW/normW);
+
+        if(deltaW/normW<1e-3){
+	    endNorm=1;
+	}
+
         memcpy(beta,betaNew,(dataset.l+1)*sizeof(double));
+
+	if(deltaW/normW<bestNorm){
+	    bestNorm=deltaW/normW;
+	    SinceBest=0;
+	    memcpy(betaBest,betaNew,(dataset.l+1)*sizeof(double));
+	}else{
+	    SinceBest+=1;
+	}
+
 
 
         ///////////////////////////////
@@ -560,17 +586,8 @@ double* trainFULL(svm_dataset dataset,properties props){
             }
 
         }
-
-        if(iter>10){
-            if((fullfill1+fullfill2+fullfill3)<bestFulfill){
-                bestFulfill=(fullfill1+fullfill2+fullfill3);
-                itersSinceBest=0;
-                memcpy(betaBest,betaNew,(dataset.l)*sizeof(double));
-            }else{
-                itersSinceBest+=1;
-            }
-        }
-
+        
+        
         //printf("ITERS SINCE BEST, %d %d %d\n",itersSinceBest,fullfill1+fullfill2+fullfill3,bestFulfill);
         printf("%s", ".");
         fflush(stdout);
@@ -599,7 +616,8 @@ double* trainFULL(svm_dataset dataset,properties props){
             	}
             	free(perm);
         }
-        memcpy(beta,betaNew,dataset.l*sizeof(double));
+	
+        //memcpy(beta,betaNew,dataset.l*sizeof(double));
     }
 
     printf("\n");
