@@ -145,9 +145,8 @@ double* subIRWLS(svm_dataset dataset,properties props, double *GIN, double *e, d
         ///////////////////////////////////////////////////////
         //SOLVING THE LINEAR SYSTEM
         ///////////////////////////////////////////////////////
-        int pow2threads = pow(2,floor(log(props.Threads)/log(2.0)))
-        printf("Cores %d",pow2threads);
-        omp_set_num_threads(pow2threads);
+        
+        omp_set_num_threads(pow(2,floor(log(props.Threads)/log(2.0))));
         ParallelLinearSystem(H,(nS1+1),(nS1+1),0,0,et,(nS1+1),1,0,0,(nS1+1),1,betaAux,(nS1+1),1,0,0,props.Threads);
         omp_set_num_threads(props.Threads);
 
