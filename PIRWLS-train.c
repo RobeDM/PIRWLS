@@ -386,7 +386,7 @@ double* trainFULL(svm_dataset dataset,properties props){
     double bestNorm=1e20;
     int SinceBest=0;
 
-    while( (endNorm==0) && (SinceBest<20)){
+    while( (endNorm==0) && (SinceBest<50)){
         iter+=1;
 
         // CONSTRUCT GIN AND GBIN
@@ -478,7 +478,7 @@ double* trainFULL(svm_dataset dataset,properties props){
 
         //printf("El valor es %f\n",deltaW/normW);
 
-        if(deltaW/normW<5e-3){
+        if(deltaW/normW<1.0e-3){
 	    endNorm=1;
 	}
 
