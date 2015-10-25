@@ -406,7 +406,7 @@ void readModel(model * mod, FILE *Input){
 
     mod->x[0]=&features[0];    
     int iterSV=1;
-    for(aux=1;aux<(mod->nElem);aux++){
+    for(aux=0;aux<(mod->nElem);aux++){
         if (features[aux].index == -1){
             if(iterSV<mod->nSVs) mod->x[iterSV]=&features[aux+1];
             ++iterSV;
