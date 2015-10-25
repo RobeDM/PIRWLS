@@ -386,7 +386,7 @@ double* trainFULL(svm_dataset dataset,properties props){
     double bestNorm=1e20;
     int SinceBest=0;
 
-    while( (endNorm==0) && (SinceBest<50)){
+    while( (endNorm==0) && (SinceBest<300)){
         iter+=1;
 
         // CONSTRUCT GIN AND GBIN
