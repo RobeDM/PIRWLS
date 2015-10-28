@@ -146,7 +146,7 @@ double* subIRWLS(svm_dataset dataset,properties props, double *GIN, double *e, d
         //SOLVING THE LINEAR SYSTEM
         ///////////////////////////////////////////////////////
         thLS=pow(2,floor(log(props.Threads)/log(2.0)));
-        if(thLS<nS1) thLS=pow(2,floor(log(nS1)/log(2.0)));
+        if(nS1<thLS) thLS=pow(2,floor(log(nS1)/log(2.0)));
         if(thLS<1) thLS=1;
         
         omp_set_num_threads(thLS);
