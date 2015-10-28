@@ -75,7 +75,7 @@ double* subIRWLS(svm_dataset dataset,properties props, double *GIN, double *e, d
     int itersSinceBestDW=0;
     double bestDW=1e9;
     //Variables to iterate
-    int i, o, ind=0, ind2=0,nS1=0, nS3=0;
+    int i, o, ind=0, ind2=0,nS1=0, nS3=0, thLS=0;
     
     //Variables for least square problems
     double *H   = (double *) calloc((dataset.l+1)*(dataset.l+1),sizeof(double));
@@ -145,9 +145,12 @@ double* subIRWLS(svm_dataset dataset,properties props, double *GIN, double *e, d
         ///////////////////////////////////////////////////////
         //SOLVING THE LINEAR SYSTEM
         ///////////////////////////////////////////////////////
+        thLS=pow(2,floor(log(props.Threads)/log(2.0)));
+        if(thLS<nS1) thLS=pow(2,floor(log(nS1)/log(2.0)));
+        if(thLS<1) thLS=1;
         
-        omp_set_num_threads(pow(2,floor(log(props.Threads)/log(2.0))));
-        ParallelLinearSystem(H,(nS1+1),(nS1+1),0,0,et,(nS1+1),1,0,0,(nS1+1),1,betaAux,(nS1+1),1,0,0,props.Threads);
+        omp_set_num_threads(thLS);
+        ParallelLinearSystem(H,(nS1+1),(nS1+1),0,0,et,(nS1+1),1,0,0,(nS1+1),1,betaAux,(nS1+1),1,0,0,thLS);
         omp_set_num_threads(props.Threads);
 
         ///////////////////////////////////////////////////////
