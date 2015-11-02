@@ -377,14 +377,7 @@ double* trainFULL(svm_dataset dataset,properties props){
     }	
 
 
-    int fullfill1=1000;
-    int fullfill2=1000;
-    int fullfill3=1000;
-
-    int bestFulfill=dataset.l+2;
-    int itersSinceBest=0;
     int iter=0;
-
     int endNorm=0;
     double bestNorm=1e20;
     int SinceBest=0;
@@ -433,7 +426,6 @@ double* trainFULL(svm_dataset dataset,properties props){
 
         betasub[nSW]=beta[dataset.l];
 
-      
         /////////////////
         // CALL TO IRWLS
         /////////////////
@@ -496,12 +488,9 @@ double* trainFULL(svm_dataset dataset,properties props){
 	}
 
 
-
         ///////////////////////////////
         // UPDATING STOPPING CONDITIONS
         ///////////////////////////////
-
-        epsilon=0.0;
 
         found00=0,found01=0,found02=0,found10=0,found11=0,found12=0;
 
@@ -509,10 +498,6 @@ double* trainFULL(svm_dataset dataset,properties props){
         nSIn=0;
         nSC=0;
 
-        fullfill1=0;
-        fullfill2=0;
-        fullfill3=0;
-        
         
         for (i=0;i<dataset.l;i++){
                
@@ -520,7 +505,6 @@ double* trainFULL(svm_dataset dataset,properties props){
                 epsilonTmp=e[i]*dataset.y[i];
 
                 if(epsilonTmp<-1.0*epsilonThreshold){
-                    fullfill3+=1;
                     if(dataset.y[i]==-1 && found02==0){
                         SW[nSW]=i;
                         nSW+=1;
@@ -542,7 +526,6 @@ double* trainFULL(svm_dataset dataset,properties props){
                 epsilonTmp=e[i]*dataset.y[i];
                 
                 if(epsilonTmp>epsilonThreshold){
-                	  fullfill2+=1;
                     if(dataset.y[i]==-1 && found00==0){
                         SW[nSW]=i;
                         nSW+=1;
@@ -565,7 +548,6 @@ double* trainFULL(svm_dataset dataset,properties props){
                 epsilonTmp=fabs(e[i]*dataset.y[i]);
 
                 if(epsilonTmp>epsilonThreshold){
-                	  fullfill1+=1;
                     if(dataset.y[i]==-1 && found01==0){
                         SW[nSW]=i;
                         nSW+=1;
@@ -583,10 +565,6 @@ double* trainFULL(svm_dataset dataset,properties props){
                     nSC+=1;
                 }
 
-            }
-
-            if (epsilonTmp>epsilon){
-                epsilon=epsilonTmp;
             }
 
         }
