@@ -8,7 +8,8 @@ Requirements:
 This software is implemented in C and requires the following libraries:
 
  - [OpenMP] (http://openmp.org/wp/) To parallelize the software
- - A Linear Algebra Package that implements the BLAS and Lapack standard routines, this software has been tested with these two libraries (you need just one of them):
+ - A Linear Algebra Package that implements the BLAS and Lapack standard routines, this software has been tested with these libraries (you need just one of them):
+     - [BLAS] (http://www.netlib.org/blas/) and [LAPACK] (http://www.netlib.org/lapack/)
      - [ATLAS] (http://math-atlas.sourceforge.net/)
      - [MKL](https://software.intel.com/en-us/intel-mkl)
 
