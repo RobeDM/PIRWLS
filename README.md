@@ -85,20 +85,18 @@ Input file format:
 
 The dataset must be provided in LibSVM format, labeled to train the model and labeled or unlabeled for predictions (using the -l option in the PIRWLS-predict command to tell if the file is labeled or unlabeled):
 
-``There is a literal backtick (`) here.``
-
 
 Labeled example:
 
-+1 1:5 7:2 15:6
-+1 1:5 7:2 15:6 23:1
--1 2:4 3:2 10:6 11:4
+``+1 1:5 7:2 15:6``
+``+1 1:5 7:2 15:6 23:1``
+``-1 2:4 3:2 10:6 11:4``
 
 Unlabeled example:
 
-1:5 7:2 15:6
-1:5 7:2 15:6 23:1
-2:4 3:2 10:6 11:4
+``1:5 7:2 15:6``
+``1:5 7:2 15:6 23:1``
+``2:4 3:2 10:6 11:4``
 
 
 
