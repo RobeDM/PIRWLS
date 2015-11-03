@@ -53,15 +53,14 @@ double *test(svm_dataset dataset, model mymodel,predictProperties props){
 
 void writeOutput (char fileoutput[], double *predictions, int size){
 	
-	   FILE *Archivo;
+     FILE *Archivo;
      Archivo = fopen(fileoutput,"w+"); 
          
-     if(Archivo !=0)
-     {
-      int i;
-      for(i=0;i<size;i++){
-      	fprintf(Archivo,"%lf\n",predictions[i]);
-      }
+     if(Archivo !=0){
+          int i;
+          for(i=0;i<size;i++){
+      	      fprintf(Archivo,"%lf\n",predictions[i]);
+          }
      }
      fclose(Archivo);
 }
