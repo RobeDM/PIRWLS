@@ -38,12 +38,12 @@ int * rpermute(int n) {
     int *a = (int *) malloc(n*sizeof(int));
     int k;
     for (k = 0; k < n; k++)
-			  a[k] = k;
+	a[k] = k;
         for (k = n-1; k > 0; k--) {
-	          int j = rand() % (k+1);
-	          int temp = a[j];
-	          a[j] = a[k];
-	          a[k] = temp;
+		int j = rand() % (k+1);
+		int temp = a[j];
+		a[j] = a[k];
+		a[k] = temp;
         }
     return a;
 }
