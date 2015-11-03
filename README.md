@@ -20,7 +20,7 @@ Installation Instructions:
 External libraries:
 ________________
 
-An example to install in ubuntu all the libraries that we need is the following:
+An example to install in ubuntu all the libraries that we need is the following (apt-get is command in the debian based linux distributions to install packages):
 
 OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line:
 
@@ -58,11 +58,15 @@ To train the algorithm and create the model:
 
     ./PIRWLS-train [options] training_set_file model_file
 
+training_set_file: Training set in LibSVM format
+model_file: File where the classifier will be stored
+
 Options:
 * -g Gamma: Set gamma in the radial basis kernel function (default 1)
 * -c Cost: Set the SVM Cost (default 1)
 * -w Working_set_size: Size of the Least Squares Problem in every iteration (default 500)
 * -t Number_of_Threads: It is the number of threads in the parallel task (default 1)
+* -e eta: Stop criteria (default 0.001)
 
 Example:
 
