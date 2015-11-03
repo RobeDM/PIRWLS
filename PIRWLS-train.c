@@ -473,7 +473,7 @@ double* trainFULL(svm_dataset dataset,properties props){
 
         //printf("El valor es %f\n",deltaW/normW);
 
-        if(deltaW/normW<1.0e-3){
+        if(deltaW/normW<props.Eta){
 	    endNorm=1;
 	}
 
