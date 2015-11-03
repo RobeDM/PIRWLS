@@ -294,7 +294,7 @@ svm_dataset readUnlabeledFile(char filename[]){
     dataset.sparse = 0;
 
     while (fgets(fileline, 100000, file) != NULL){
-        char *p;
+        char *p = strtok(fileline," \t");
 
         while(1){
             p = strtok(NULL," \t");
