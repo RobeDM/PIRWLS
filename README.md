@@ -32,6 +32,17 @@ To install the linear algebra routines use the following command line:
     sudo apt-get install libblas-dev
     sudo apt-get install libatlas-dev
 
+Compiling:
+__________
+
+If you use blas, lapack, atlas:
+
+    make
+
+If you use MKL libraries:
+
+    make USE_MKL=1
+
 
 Running the code:
 =================
