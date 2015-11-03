@@ -16,8 +16,8 @@
 #include "cblas.h"
 #endif
 
-#include "./functionsPIRWLS/tools.c"
-#include "./functionsPIRWLS/kernels.c"
+#include "./lib/tools.c"
+#include "./lib/kernels.c"
 
 
 
