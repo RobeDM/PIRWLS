@@ -44,13 +44,19 @@ The operating system was linux gentoo
 Running the code:
 =================
 
+Training:
+________
+
 To train the algorithm and create the model:
 
-    python train.py
+    ./PIRWLS-train [options] training_set_file model_file
 
-To use the model and make the predictions on a test file:
+Test:
+_____
 
-    python predict.py
+To make predictions with the model in a different dataset:
+
+    ./PIRWLS-predict [options] dataset_file model_file output_file
 
 
 
