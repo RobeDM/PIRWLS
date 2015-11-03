@@ -73,8 +73,8 @@ To make predictions with the model in a different dataset:
 Options:
 * -t Number_of_Threads: It is the number of threads in the parallel task (default 1)
 * -l Labeled:  (default 0)
-** 1 if the dataset is labeled (shows accuracy)
-** 0 if the dataset is unlabeled
+1. 1 if the dataset is labeled (shows accuracy)
+1. 0 if the dataset is unlabeled
 
 Example:
 
