@@ -88,9 +88,11 @@ The dataset must be provided in LibSVM format, labeled to train the model and la
 
 Labeled example:
 
-``+1 1:5 7:2 15:6``
-``+1 1:5 7:2 15:6 23:1``
-``-1 2:4 3:2 10:6 11:4``
+~~~~
++1 1:5 7:2 15:6
++1 1:5 7:2 15:6 23:1
+-1 2:4 3:2 10:6 11:4
+~~~~
 
 Unlabeled example:
 
