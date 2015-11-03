@@ -16,6 +16,17 @@ This software is implemented in C and requires the following libraries:
 Installation Instructions:
 =========
 
+External libraries:
+________________
+
+An example to install in ubuntu all the libraries that we need is the following:
+
+ - OPENMP is currently included with the gcc compiler, so it is not installed in the :
+
+    sudo apt-get install build-essential
+
+ - ATLAS
+
 
 Running the code:
 =================
