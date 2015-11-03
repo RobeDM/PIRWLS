@@ -4,6 +4,7 @@ typedef struct properties{
     double C;
     int Threads;
     int MaxSize;
+    double Eta;
 }properties;
 
 typedef struct predictProperties{
@@ -53,6 +54,7 @@ void printInstructions() {
     fprintf(stderr, "  -c Cost: set SVM Cost (default 1)\n");
     fprintf(stderr, "  -t Threads: Number of threads (default 1)\n");
     fprintf(stderr, "  -w Working set size: Size of the Least Squares problem in every iteration (default 500)\n");
+    fprintf(stderr, "  -e eta: Stop criteria (default 0.001)\n");    
 }
 
 
@@ -77,6 +79,7 @@ properties TrainParameters(int* argc, char*** argv) {
     props.C = 1.0;
     props.Threads=1;
     props.MaxSize=500;
+    props.Eta=0.001;
 
     int i,j;
     for (i = 1; i < *argc; ++i) {
@@ -92,7 +95,9 @@ properties TrainParameters(int* argc, char*** argv) {
             props.Kgamma = atof(param_value);
         } else if (strcmp(param_name, "c") == 0) {
             props.C = atof(param_value);
-        } else if (strcmp(param_name, "t") == 0) {
+        }  else if (strcmp(param_name, "e") == 0) {
+            props.Eta = atof(param_value);
+        }else if (strcmp(param_name, "t") == 0) {
             props.Threads = atoi(param_value);
         } else if (strcmp(param_name, "w") == 0) {
             props.MaxSize = atoi(param_value);
