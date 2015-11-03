@@ -51,6 +51,13 @@ To train the algorithm and create the model:
 
     ./PIRWLS-train [options] training_set_file model_file
 
+Options:
+-g Gamma: Set gamma in the radial basis kernel function (default 1)
+-c Cost: Set the SVM Cost (default 1)
+-w Working_set_size: Size of the Least Squares Problem in every iteration (default 500)
+-t Number_of_Threads: It is the number of threads in the parallel task (default 1)
+
+
 Test:
 _____
 
@@ -58,5 +65,8 @@ To make predictions with the model in a different dataset:
 
     ./PIRWLS-predict [options] dataset_file model_file output_file
 
+Options:
+-t Number_of_Threads: It is the number of threads in the parallel task (default 1)
+-l Show_Accuracy (default 0)
 
 
