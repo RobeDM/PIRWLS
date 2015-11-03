@@ -44,6 +44,9 @@ If you use MKL libraries:
     make USE_MKL=1
 
 
+If the libraries are not installed in the standard paths you can uncomment and edit the variables INCLUDEPATH and LIBRARYPATH to tell the location.
+
+
 Running the code:
 =================
 
