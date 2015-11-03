@@ -95,7 +95,7 @@ properties TrainParameters(int* argc, char*** argv) {
             props.Kgamma = atof(param_value);
         } else if (strcmp(param_name, "c") == 0) {
             props.C = atof(param_value);
-        }  else if (strcmp(param_name, "e") == 0) {
+        } else if (strcmp(param_name, "e") == 0) {
             props.Eta = atof(param_value);
         }else if (strcmp(param_name, "t") == 0) {
             props.Threads = atoi(param_value);
