@@ -26,6 +26,11 @@ OPENMP is currently included with the gcc compiler, if gcc is not installed, use
     sudo apt-get install build-essential
 
 
+To install the linear algebra routines use the following command line:
+
+    sudo apt-get install liblapack-dev
+    sudo apt-get install libblas-dev
+    sudo apt-get install libatlas-dev
 
 
 Running the code:
