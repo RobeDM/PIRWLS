@@ -26,10 +26,10 @@
 #include "cblas.h"
 #endif
 
-#include "./functionsPIRWLS/ParallelAlgorithms.h"
-#include "./functionsPIRWLS/ParallelAlgorithms.c"
-#include "./functionsPIRWLS/tools.c"
-#include "./functionsPIRWLS/kernels.c"
+#include "./lib/ParallelAlgorithms.h"
+#include "./lib/ParallelAlgorithms.c"
+#include "./lib/tools.c"
+#include "./lib/kernels.c"
 
 
 int randomNum;
