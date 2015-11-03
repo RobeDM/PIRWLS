@@ -72,9 +72,18 @@ To make predictions with the model in a different dataset:
 
 Options:
 * -t Number_of_Threads: It is the number of threads in the parallel task (default 1)
-* -l Show_Accuracy (default 0)
+* -l Labeled:  (default 0)
+** 1 if the dataset is labeled (shows accuracy)
+** 0 if the dataset is unlabeled
 
 Example:
 
     ./PIRWLS-predict -t 4 -l 1 dataset_file.txt model_file.mod output_file.txt
+
+Input file format:
+=================
+
+The dataset must be provided in LibSVM format, labeled to train the model and labeled or unlabeled for predictions (using the -l option in the PIRWLS-predict command to tell if the file is labeled or unlabeled):
+
+
 
