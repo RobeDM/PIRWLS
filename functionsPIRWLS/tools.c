@@ -295,6 +295,7 @@ svm_dataset readUnlabeledFile(char filename[]){
 
     while (fgets(fileline, 100000, file) != NULL){
         char *p = strtok(fileline," \t");
+        ++elements;
 
         while(1){
             p = strtok(NULL," \t");
@@ -302,6 +303,7 @@ svm_dataset readUnlabeledFile(char filename[]){
             ++elements;
         }
         ++elements;
+        
         ++dataset.l;
     }
 
@@ -320,7 +322,6 @@ svm_dataset readUnlabeledFile(char filename[]){
     int inst_max_index;
     int errno;
 
-
     for(i=0;i<dataset.l;i++){
 
         inst_max_index = -1;
@@ -330,31 +331,42 @@ svm_dataset readUnlabeledFile(char filename[]){
         }
 
         dataset.x[i] = &features[j];
+
+        dataset.y[i] = 0;
+
         dm = 0;
+
+        idx = strtok(fileline,":");
+        val = strtok(NULL," \t");
+
         while(1){
-            idx = strtok(NULL,":");
-            val = strtok(NULL," \t");
 
             if(val == NULL) break;
 
-            errno = 0;
             features[j].index = (int) strtol(idx,&endptr,10);
-            if(endptr == idx || errno != 0 || *endptr != '\0' || features[j].index <= inst_max_index){
+
+            if(endptr == idx || *endptr != '\0' || features[j].index <= inst_max_index){
                 fprintf(stderr, "Wrong file format\n");
                 exit(2);
             }else{
                 inst_max_index = features[j].index;
             }
+
             if(features[dm].index != features[j].index){
                 dataset.sparse=1;
             }
-            errno = 0;
+
             features[j].value = strtod(val,&endptr);
             dataset.quadratic_value[i] += pow(strtod(val,&endptr),2);
-            if(endptr == val || errno != 0 || (*endptr != '\0' && !isspace(*endptr))){
+
+            if(endptr == val ||  (*endptr != '\0' && !isspace(*endptr))){
                 fprintf(stderr, "Wrong file format\n");
                 exit(2);
             }
+
+            idx = strtok(NULL,":");
+            val = strtok(NULL," \t");
+
             ++dm;
             ++j;
         }
@@ -362,6 +374,7 @@ svm_dataset readUnlabeledFile(char filename[]){
         if(inst_max_index > max_index){
             max_index = inst_max_index;
         }
+
         features[j++].index = -1;
 
     }
@@ -371,6 +384,7 @@ svm_dataset readUnlabeledFile(char filename[]){
     return dataset;
 
 }
+
 
 void storeModel(model * mod, FILE *Output){
 
