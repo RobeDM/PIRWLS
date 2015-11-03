@@ -21,10 +21,8 @@ ________________
 
 An example to install in ubuntu all the libraries that we need is the following:
 
- - OPENMP is currently included with the gcc compiler, so it is not installed in the :
- -
-    ./PIRWLS-train [options] training_set_file model_file
-
+ * OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line :
+ 
     sudo apt-get install build-essential
 
  - ATLAS
