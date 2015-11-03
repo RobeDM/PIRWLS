@@ -21,11 +21,11 @@ ________________
 
 An example to install in ubuntu all the libraries that we need is the following:
 
- * OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line :
- 
+OPENMP is currently included with the gcc compiler, if gcc is not installed, use the following command line:
+
     sudo apt-get install build-essential
 
- - ATLAS
+
 
 
 Running the code:
