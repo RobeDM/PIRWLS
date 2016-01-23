@@ -45,7 +45,7 @@ If you use MKL libraries:
     make USE_MKL=1
 
 
-If the libraries are not installed in the standard paths you can uncomment and edit the following variables:
+If the libraries are not installed in the standard paths you can edit the file Makefile and uncomment and edit the following variables:
  INCLUDEPATH to tell the cblas.h file
  LIBRARYPATH to tell the linear algebra libraries location.
 
